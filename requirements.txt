@@ -3,6 +3,6 @@
 # requests
 # io
 # os
-# cv2
+cv2
 # numpy
 # base64
