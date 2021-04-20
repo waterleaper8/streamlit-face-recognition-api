@@ -15,6 +15,8 @@ if os.path.exists('secret.json'):
         secret_json = json.load(f)
     subscription_key = secret_json['SUBSCRIPTION_KEY']
     assert subscription_key
+else:
+    subscription_key = st.secrets['subscription_key']
 
 face_api_url = 'https://facekmkm.cognitiveservices.azure.com/face/v1.0/detect'
 
