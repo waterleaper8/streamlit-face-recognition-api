@@ -3,6 +3,7 @@
 # requests
 # io
 # os
-cv2
+cv2===4.5.1
+json===0.9.5
 # numpy
 # base64

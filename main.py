@@ -4,18 +4,17 @@ import io
 import os
 from PIL import Image, ImageDraw, ImageFont
 import cv2
+import json
 import numpy as np
 import base64
 
 st.title('顔認識アプリ')
 
-# if os.path.exists('secret.json'):
-#     with open('secret.json') as f:
-#         secret_json = json.load(f)
-#     subscription_key = secret_json['SUBSCRIPTION_KEY']
-#     assert subscription_key
-# else:
-#     subscription_key = st.text_area('APIキー')
+if os.path.exists('secret.json'):
+    with open('secret.json') as f:
+        secret_json = json.load(f)
+    subscription_key = secret_json['SUBSCRIPTION_KEY']
+    assert subscription_key
 
 face_api_url = 'https://facekmkm.cognitiveservices.azure.com/face/v1.0/detect'
 
