@@ -3,7 +3,8 @@
 # requests
 # io
 # os
-cv2===4.5.1
-json===0.9.5
+opencv-contrib-python==4.5.1.48
+json5==0.9.5
+jsonschema==3.2.0
 # numpy
 # base64
