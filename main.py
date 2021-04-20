@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-import json
 import io
 import os
 from PIL import Image, ImageDraw, ImageFont
