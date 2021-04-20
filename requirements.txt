@@ -3,7 +3,7 @@
 # requests
 # io
 # os
-opencv-contrib-python==4.5.1.48
+opencv-python==4.5.1.48
 json5==0.9.5
 jsonschema==3.2.0
 # numpy
