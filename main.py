@@ -10,13 +10,13 @@ import base64
 
 st.title('顔認識アプリ')
 
-if os.path.exists('secret.json'):
-    with open('secret.json') as f:
-        secret_json = json.load(f)
-    subscription_key = secret_json['SUBSCRIPTION_KEY']
-    assert subscription_key
-else:
-    subscription_key = st.text_area('APIキー')
+# if os.path.exists('secret.json'):
+#     with open('secret.json') as f:
+#         secret_json = json.load(f)
+#     subscription_key = secret_json['SUBSCRIPTION_KEY']
+#     assert subscription_key
+# else:
+#     subscription_key = st.text_area('APIキー')
 
 face_api_url = 'https://facekmkm.cognitiveservices.azure.com/face/v1.0/detect'
 
@@ -30,7 +30,7 @@ params = {
 }
 
 def pil2cv(image):
-    # ''' PIL型 -> OpenCV型 '''
+    ''' PIL型 -> OpenCV型 '''
     new_image = np.array(image, dtype=np.uint8)
     if new_image.ndim == 2:  # モノクロ
         pass
@@ -52,14 +52,26 @@ def cv2pil(image):
     new_image = Image.fromarray(new_image)
     return new_image
 
+def cv2_putText_1(img, text, org, fontFace, fontScale, color):
+    x, y = org
+    b, g, r = color
+    colorRGB = (r, g, b)
+    imgPIL = cv2pil(img)
+    draw = ImageDraw.Draw(imgPIL)
+    fontPIL = ImageFont.truetype(font = fontFace, size = fontScale)
+    draw.text(xy = (x,y), text = text, fill = colorRGB, font = fontPIL)
+    """
+    後でここに追加する
+    """
+    imgCV = pil2cv(imgPIL)
+    return imgCV
+
 uploaded_file = st.file_uploader("Choose an image", type=['jpg','jpeg'])
 if uploaded_file is not None:
     img = Image.open(uploaded_file)
     with io.BytesIO() as output:
         img.save(output, format="JPEG")
         binary_img = output.getvalue() # バイナリ取得
-    
-    
 
     frame = pil2cv(img)
 
@@ -85,10 +97,10 @@ if uploaded_file is not None:
         end_x = rect['left']+rect['width']
         end_y = rect['top']+rect['height']
 
-        
         # draw = ImageDraw.Draw(img)
         # draw.rectangle([(start_x, start_y), (end_x, end_y)], fill=None, outline='red', width=5)
         # draw.text((rect['left'], rect['top']-20), f'{gender} {age}', font=fnt, fill='white')
+
         cv2.rectangle(frame, (start_x, start_y), (end_x, end_y), (255, 255, 255), 2)
         cv2.rectangle(frame, (start_x, start_y - label_size[1]),
             (start_x + label_size[0], start_y + base_line),
@@ -100,6 +112,3 @@ if uploaded_file is not None:
         img = cv2pil(frame)
 
     st.image(img, caption='Uploaded Image.', use_column_width=True)
-
-    
-
