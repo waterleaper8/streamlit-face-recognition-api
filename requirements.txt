@@ -1,10 +1,7 @@
-# streamlit
-# Pillow
-# requests
-# io
-# os
+streamlit==0.80.0
 opencv-python==4.5.1.48
 json5==0.9.5
 jsonschema==3.2.0
-# numpy
-# base64
+numpy==1.20.2
+Pillow==8.2.0
+requests==2.25.1
