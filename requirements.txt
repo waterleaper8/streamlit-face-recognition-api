@@ -1,7 +1,8 @@
 streamlit
-opencv-python==4.5.1.48
 json5==0.9.5
 jsonschema==3.2.0
 numpy==1.20.2
 Pillow==8.2.0
 requests==2.25.1
+# opencv-python==4.5.1.48
+opencv-python--headless
