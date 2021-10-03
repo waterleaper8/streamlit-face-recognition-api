@@ -9,7 +9,7 @@ import numpy as np
 import base64
 
 st.set_page_config(page_title='顔認識アプリ', initial_sidebar_state = 'auto')
-st.title('顔認識アプリ')
+st.title('画像顔認識アプリ')
 
 if os.path.exists('secret.json'):
     with open('secret.json') as f:

@@ -1,5 +1,6 @@
 streamlit
 opencv-python==4.5.1.48
+opencv-contrib-python
 json5==0.9.5
 jsonschema==3.2.0
 numpy==1.20.2
