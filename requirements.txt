@@ -1,4 +1,4 @@
-streamlit==0.80.0
+streamlit
 opencv-python==4.5.1.48
 json5==0.9.5
 jsonschema==3.2.0
